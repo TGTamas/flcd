@@ -14,7 +14,7 @@ stmtlist = stmt | stmt ";" stmtlist
 
 stmt = simplstmt | structstmt
 
-simplstmt = assignstmt | iostmt
+simplstmt = assignstmt | iostmt | commentstmt
 
 assignstmt = IDENTIFIER "=" expression | IDENTIFIER "=" INT | IDENTIFIER "=" CHAR | IDENTIFIER "=" STRING
 
@@ -25,6 +25,8 @@ term = term "*" factor | factor
 factor = "(" expression ")" | IDENTIFIER | INT
 
 iostmt = ( "std::cin" | "std::cout " ) OPERATOR " " IDENTIFIER
+
+commentstmt = "//" STRING
 
 structstmt = cmpdstmt | ifstmt | forstmt
 

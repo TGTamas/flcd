@@ -14,9 +14,11 @@ stmtlist = stmt | stmt ";" stmtlist
 
 stmt = simplstmt | structstmt
 
-simplstmt = assignstmt | iostmt
+simplstmt = assignstmt | iostmt | commentstmt
 
 assignstmt = IDENTIFIER "=" expression | IDENTIFIER "=" INT | IDENTIFIER "=" CHAR | IDENTIFIER "=" STRING
+
+commentstmt = "//" STRING
 
 expression = expression "+" term | term
 

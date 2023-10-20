@@ -1,0 +1,37 @@
+program = "#include <iostream>" decllist ";" cmpdstmt "."
+
+decllist = declaration | declaration ";" decllist
+
+declaration = type IDENTIFIER ";"
+
+type = "bool" | "char" | "int" | "std::string"
+
+arraydecl = type1 IDENTIFIER "[" nr "]"
+
+cmpdstmt = "int main(){" stmtlist "}" 
+
+stmtlist = stmt | stmt ";" stmtlist
+
+stmt = simplstmt | structstmt
+
+simplstmt = assignstmt | iostmt
+
+assignstmt = IDENTIFIER "=" expression | IDENTIFIER "=" INT | IDENTIFIER "=" CHAR | IDENTIFIER "=" STRING
+
+expression = expression "+" term | term
+
+term = term "*" factor | factor
+
+factor = "(" expression ")" | IDENTIFIER | INT
+
+iostmt = ( "std::cin" | "std::cout " ) OPERATOR " " IDENTIFIER
+
+structstmt = cmpdstmt | ifstmt | forstmt
+
+ifstmt = "if (" condition ")" " {" stmt "}" ["else {" stmt "}"]
+
+forstmmt = "for(int i=" condition "; i < " condition "; i++) {" stmt " }"
+
+condition = expression relation expression
+
+relation = "<" | "<=" | "==" | "!=" | ">=" | ">"

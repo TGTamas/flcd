@@ -1,3 +1,4 @@
+operators:
 +
 -
 *
@@ -11,16 +12,16 @@
 >=
 >>
 <<
+separators:
 [
 ]
 {
 }
 (
 )
-//
-::
 :
 ;
+reserved words:
 std
 int
 char

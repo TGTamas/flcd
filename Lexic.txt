@@ -11,9 +11,9 @@ Lexic:
 
 a. Special tokens, representing:
 
-- operators + - * / == = != < > <=  >= >> << //
+- operators: + - * / == = != < > <=  >= >> << //
 
-- separators 
+- separators: ( ) [ ] { } : ; , 
 
 - reserved words: std int char const for if else std::cin std::cout
 

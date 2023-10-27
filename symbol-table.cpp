@@ -21,14 +21,19 @@ public:
         table.resize(capacity);
     }
 
-    bool find(const T& key) const {
+    int find(const T& key) const {
         int index = hash(key);
-        return std::find(table[index].begin(), table[index].end(), key) != table[index].end();
+        for (auto currentSymbol : table[index])
+        {
+            if(currentSymbol == key)
+                return index;
+        }
+        return -1;
     }
 
     void insert(const T& key) {
         int index = hash(key);
-        if (!find(key)) {
+        if (find(key) == -1) {
             table[index].push_back(key);
             size++;
         }
@@ -51,7 +56,7 @@ class SymbolTable
 private:
     HashTable<T> symbols;
 public:
-    bool get(const T& key) {
+    int get(const T& key) {
         return symbols.find(key);
     }
 
@@ -79,15 +84,17 @@ int main()
     st.insert("c");
     st.remove("b");
     std::cout << st.size() << std::endl;
-    if (st.get("c") && st.get("b"))
+    if (st.get("c") && st.get("b") != -1)
         std::cout << "Not working" << std::endl;
-    else if (st.get("c") && !st.get("b"))
+    else if (st.get("c") && st.get("b") == -1)
         std::cout << "Working" << std::endl;
     std::cout << st.get("a") << std::endl;
     std::cout << st.get("c") << std::endl;
     std::cout << st.get("b") << std::endl;
 
     return 0;
+
+    //1b
 }
 
 
